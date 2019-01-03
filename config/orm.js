@@ -5,31 +5,33 @@ var orm = {
         var queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, function (err, result) {
             if (err) throw err;
-
+            console.log(result);
             cb(result);
         })
         
-        console.log(result);
     },
 
     insertOne: function (tableInput, values, cb) {
+        console.log(tableInput);
+        console.log(values);
         var queryString = "INSERT INTO ?? (burger_name, devoured) VALUES(?);";
         connection.query(queryString, [tableInput, values], function(err, result){
             if (err) throw err;
+            console.log(result);
             cb(result);
         })
 
-        console.log(result);
     },
 
     updateOne: function(tableInput, columnInput, newValue, location, cb) {
+        console.log([tableInput, columnInput, newValue, location]);
         var queryString = "UPDATE ?? SET ?? = ? WHERE id = ?";
         connection.query(queryString, [tableInput, columnInput, newValue, location], function(err, result) {
             if (err) throw err;
+            console.log(result);
             cb(result);
         })
 
-        console.log(result);
     } 
 }
 

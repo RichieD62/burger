@@ -1,67 +1,84 @@
+<br>
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1>Eat-Da-Burger!</h1>
-            <br>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-6">
-            <br>
-            <h2>Burgers to be Eaten...</h2>
-
-            <ul>
-                {{#each burgers}}
-                    {{#unless devoured}}
-                    <li>
-                        {{id}}
-                        {{burger_name}}
-
-                        <form action="/{{this.id}}?_method=PUT" method="POST">
-                            <input type="hidden" name="devoured" value="true">
-                            <button class="btn-primary" type="submit">Devour!</button>
-                        </form>
-
-
-                    </li>
-                    {{/unless}}
-                {{/each}}
-            </ul>
-
-        </div>
-
-        <div class="col-md-6">
-            <br>
-            <h2>Burgers that have been Eaten...</h2>
-
-            <ul>
-                {{#each burgers}}
-                    {{#if devoured}}
-                    <li>
-                        {{id}}
-                        {{burger_name}}
-
-                    </li>
-                    {{/if}}
-                {{/each}}
-            </ul>
-
-        </div>
-    </div>
 
     <div class="row">
         <div class="col-md-12">
-            <h2>Add a Burger!</h2>
-            <form class="create-burger-form" action="/" method="POST">
-                <div class="form-group">
-                    <p>Enter a burger that you would like to create, then click the Submit button.</p>
-                    <input type="text" name="burger_name">
-                </div>
-
-                <button class="btn-primary" type="submit">Submit</button>
-            </form>
+            <h1 class="text-center">Eat-Da-Burger!</h1>
+            <br>
+        </div>
+       
+        <div class="col-md-12">
+             <div class="text-center">
+                <img src="/assets/img/burger2.png" alt="Burger Image" height="250" width="250">
+            </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-5" id="leftSide">
+            <br>
+                <h2 class="text-center">Burgers to be Eaten...</h2>
+
+                <ul>
+                    {{#each burgers}}
+                        {{#unless devoured}}
+                        <li>
+                            {{!-- {{id}} --}}
+                            {{burger_name}}
+
+                            <form action="/{{this.id}}" method="POST">
+                                <input type="hidden" name="devoured" value="true">
+                                <button class="btn-primary" type="submit">Devour!</button>
+                            </form>
+
+
+                        </li>
+                        {{/unless}}
+                    {{/each}}
+                </ul>
+
+        </div>
+
+        <div class="col-md-2">
+            &nbsp;
+        </div>
+
+        <div class="col-md-5" id="rightSide">
+            <br>
+                <h2>Burgers that have been Eaten...</h2>
+                    <ul>
+                        {{#each burgers}}
+                            {{#if devoured}}
+                            <li>
+                                {{!-- {{id}} --}}
+                                {{burger_name}}
+
+                            </li>
+                            {{/if}}
+                        {{/each}}
+                    </ul>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-center">
+                <h2>Add a Burger!</h2>
+                <form class="create-burger-form" action="/" method="POST">
+                    <div class="form-group">
+                        <p>Enter a burger that you would like to create, then click the Submit button.</p>
+                        <input type="text" name="burger_name">
+                    </div>
+
+                    <button class="btn-primary" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
 </div>
 
