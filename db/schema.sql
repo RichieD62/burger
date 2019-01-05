@@ -8,3 +8,5 @@ burger_name VARCHAR (200),
 devoured BOOLEAN DEFAULT FALSE,
 PRIMARY KEY(id)
 );
+
+UPDATE burgers SET devoured = false WHERE id = 6
