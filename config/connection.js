@@ -1,7 +1,10 @@
 // Set up MySQL connection.
+require("dotenv").config();
 var mysql = require("mysql");
-
 var connection;
+
+var User = process.env.DB_USER;
+var Password = process.env.DB_PASSWORD;
 
 if(process.env.JAWSDB_URL) {
   connection = mysql.createConnection(process.env.JAWSDB_URL);
@@ -9,8 +12,8 @@ if(process.env.JAWSDB_URL) {
   connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
-    user: "root",
-    password: "gerald14",
+    user: User,
+    password: Password,
     database: "burgers_db"
   });
 }
